@@ -19,7 +19,7 @@ const App = () => {
 
         .get(api)
         .then((res) => {
-          setData(res.data)
+          setData(res.data);
           console.log(data);
         })
         .catch(console.log(Error));
@@ -53,25 +53,25 @@ const App = () => {
           <div className="col-12 description">
             <div className="col-6 desc-item degree">
               <h2>{data.name}</h2>
-              <h1>{data.main.temp}°C</h1>
+              {data.main ? <h1>{data.main.temp}°C</h1> : null}
             </div>
             <div className="col-6 desc-item conditions">
-              <p>{data.weather[0].description}</p>
+              {data.weather ? <p>{data.weather[0].description} </p> : null}
             </div>
           </div>
         </div>
         <footer className="row">
           <div className="col-10 d-flex footer-container">
             <div className="col-4 footer-items">
-              <h4>{data.main.feels_like}°C</h4>
+              {data.main ? <h4>{data.main.feels_like}°C</h4> : null}
               <p>Feels Like</p>
             </div>
             <div className="col-4 footer-items">
-              <h4>{data.main.humidity}%</h4>
+              {data.main ? <h4>{data.main.humidity}%</h4> : null}
               <p>Humidity</p>
             </div>
             <div className="col-4 footer-items">
-              <h4>{data.wind.speed} MPH</h4>
+              {data.wind ? <h4>{data.wind.speed} MPH</h4> : null}
               <p>Winds</p>
             </div>
           </div>
