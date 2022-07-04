@@ -7,7 +7,7 @@
 body {
   font-family: Geneva, Tahoma, Calibri, sans-serif;
   text-align: center;
-  background-color: rgb(0, 0, 0,.5);
+  background-color: rgb(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
   background: url(../images/2010.jpg) no-repeat center center/cover;
 }
@@ -20,6 +20,18 @@ body {
   padding: 20px 0;
 }
 
+input[type="text"] {
+  border: none;
+  background-image: url(../images/search.png);
+  background-repeat: no-repeat;
+  background-position:10px;
+  background-size:17px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 35px;
+  border-radius: 7px;
+}
+
 .description {
   display: flex;
   position: relative;
@@ -28,13 +40,13 @@ body {
   align-items: flex-end;
 }
 
-.clouds {
+.conditions {
   font-size: 1.3rem;
   display: flex;
   justify-content: flex-end;
 }
 
-.clouds>p{
+.conditions > p {
   transform: rotate(-89deg);
 }
 
@@ -44,15 +56,15 @@ body {
   align-items: flex-start;
 }
 
-h1{
+h1 {
   font-size: 5rem;
 }
 
-footer{
+footer {
   justify-content: center;
 }
-.footer-container{
-  background-color: rgb(0, 0, 0,.4);
+.footer-container {
+  background-color: rgb(0, 0, 0, 0.4);
   padding: 10px;
   border-radius: 8px;
 }

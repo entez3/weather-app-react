@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/font.css"
 import "./styles/grid.css";
+import "./styles/responsive.css"
 import "./styles/custom.css";
 import "./styles/App.css";
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="row main">
-          <div className="col-12">
+          <div className="col-12 search">
             <input type="text" placeholder="location" />
           </div>
 
@@ -17,7 +17,7 @@ const App = () => {
               <p>Miami</p>
               <h1>79°F</h1>
             </div>
-            <div className="col-6 desc-item clouds">
+            <div className="col-6 desc-item conditions">
               <p>Clouds</p>
             </div>
           </div>
