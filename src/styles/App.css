@@ -4,13 +4,22 @@
   padding: 0;
 }
 
-body {
+.app {
   font-family: Geneva, Tahoma, Calibri, sans-serif;
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
-  background: url(../images/2010.jpg) no-repeat center center/cover;
+  background-image:url(../images/clear-sky.jpg) ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.app.cloudy {
+  background-image: url(../images/2010.jpg);
+}
+
+/* .app. */
 
 .container {
   display: flex;
@@ -24,15 +33,24 @@ input[type="text"] {
   border: none;
   background-image: url(../images/search.png);
   background-repeat: no-repeat;
-  background-position:10px;
-  background-size:17px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  background-position: 10px;
+  background-size: 17px;
+  padding-top: 9px;
+  padding-bottom: 9px;
   padding-left: 35px;
   border-radius: 7px;
-  background-color:rgba(255, 255, 255, 0.5)
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
+input::placeholder {
+  color: #000;
+}
+
+.search>p{
+  margin-top: 20px;
+  color:red;
+  background-color: rgb(255, 255, 255, 0.4);
+}
 
 .description {
   display: flex;

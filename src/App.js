@@ -4,24 +4,44 @@ import axios from "axios";
 import "./styles/responsive.css";
 import "./styles/custom.css";
 import "./styles/App.css";
-import { useEffect } from "react";
+
+// import { useEffect } from "react";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [location, setLocation] = useState("tehran");
+  let [status, setStatus] = useState(200);
+  // console.log(data);
 
-  const api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=6f4d9c29a7d5640079237e06f218211c`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=6f4d9c29a7d5640079237e06f218211c`;
+  const getApi = () => {
+    axios
+      .get(url)
+      .then((res) => {
+        setStatus(200);
 
+        // status = res;
+        setData(res.data);
+        console.log(res.status);
+      })
+      // .then((res)=>{setStatus(res.status)})
+
+      .catch(() => {
+        document.getElementById("alert").innerHTML =
+          "There is no such city in the database or something went wrong, please try again";
+        console.log(Error);
+        setStatus(404);
+      });
+  };
+
+  const fristData = () => {
+    if (data.length === 0) {
+      getApi();
+    }
+  };
   const searchLocation = (e) => {
     if (e.keyCode === 13) {
-      axios
-
-        .get(api)
-        .then((res) => {
-          setData(res.data);
-          console.log(data);
-        })
-        .catch(console.log(Error));
+      getApi();
     }
   };
 
@@ -33,9 +53,10 @@ const App = () => {
   //     })
   //     .catch(console.log(Error));
   // }, [location]);
+  fristData();
 
   return (
-    <div className="App">
+    <div className="app cloudy">
       <div className="container">
         <div className="row main">
           <div className="col-12 search">
@@ -45,8 +66,9 @@ const App = () => {
               }}
               onKeyDown={searchLocation}
               type="text"
-              placeholder="location"
+              placeholder="Search location"
             />
+            <p className={status === 200 ? "d-none" : "d-block"} id="alert"></p>
           </div>
 
           <div className="col-12 description">
@@ -74,6 +96,7 @@ const App = () => {
               <p>Winds</p>
             </div>
           </div>
+          {console.log(status)}
         </footer>
       </div>
     </div>
