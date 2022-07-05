@@ -9,16 +9,23 @@
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
-  background-image:url(../images/clear-sky.jpg) ;
+  background-image: url(../images/clear-sky.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .app.cloudy {
-  background-image: url(../images/2010.jpg);
+  background-image: url(../images/701631.jpg);
 }
 
+.app.rainy {
+  background-image: url(../images/rain3.jpg);
+}
+
+.app.snow {
+  background-image: url(../images/snow2.jpg);
+}
 /* .app. */
 
 .container {
@@ -46,18 +53,27 @@ input::placeholder {
   color: #000;
 }
 
-.search>p{
+.search > p {
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 20px;
-  color:red;
-  background-color: rgb(255, 255, 255, 0.4);
+  color: rgb(255, 0, 0);
+  max-width: 400px;
+  background-color: rgba(24, 11, 11, 0.6);
 }
 
 .description {
   display: flex;
   position: relative;
-  top: 32vh;
+  top: 30vh;
   padding: 0 20px;
-  align-items: flex-end;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
 }
 
 .conditions {
@@ -66,13 +82,10 @@ input::placeholder {
   justify-content: flex-end;
 }
 
-.conditions > p {
-  transform: rotate(-89deg);
-}
 
 .degree {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
 }
 
@@ -85,7 +98,7 @@ footer {
   font-size: 1rem;
 }
 .footer-container {
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: rgb(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 8px;
 }

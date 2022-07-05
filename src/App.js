@@ -22,7 +22,7 @@ const App = () => {
 
         // status = res;
         setData(res.data);
-        console.log(res.status);
+        console.log(res.data);
       })
       // .then((res)=>{setStatus(res.status)})
 
@@ -45,6 +45,21 @@ const App = () => {
     }
   };
 
+  const backGround = (description) => {
+    let res;
+    switch (description) {
+      case "Clouds":
+        res = "app cloudy";
+        break;
+      case "rainy":
+        res = "app rainy";
+        break;
+      default:
+        res = "app";
+    }
+    return res;
+  };
+
   // useEffect(() => {
   //   axios
   //     .get(api)
@@ -56,7 +71,7 @@ const App = () => {
   fristData();
 
   return (
-    <div className="app cloudy">
+    <div className={data.weather?(backGround(data.weather[0].main)):'app'}>
       <div className="container">
         <div className="row main">
           <div className="col-12 search">
@@ -68,10 +83,12 @@ const App = () => {
               type="text"
               placeholder="Search location"
             />
-            <p className={status === 200 ? "d-none" : "d-block"} id="alert"></p>
+            <p className={status === 200 ? "d-none" : "d-flex"} id="alert"></p>
           </div>
 
+
           <div className="col-12 description">
+            <div>{}</div>
             <div className="col-6 desc-item degree">
               <h2>{data.name}</h2>
               {data.main ? <h1>{data.main.temp}°C</h1> : null}
