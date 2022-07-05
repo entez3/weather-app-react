@@ -12,7 +12,7 @@ const App = () => {
   const [location, setLocation] = useState("tehran");
   let [status, setStatus] = useState(200);
   // console.log(data);
-
+  let icon;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=6f4d9c29a7d5640079237e06f218211c`;
   const getApi = () => {
     axios
@@ -28,7 +28,7 @@ const App = () => {
 
       .catch(() => {
         document.getElementById("alert").innerHTML =
-          "There is no such city in the database or something went wrong, please try again";
+          "There is no such city in the database or maybe something went wrong, please try again!";
         console.log(Error);
         setStatus(404);
       });
@@ -59,7 +59,17 @@ const App = () => {
     }
     return res;
   };
+  // var currentdate = new Date();
+  // var datetime = () => {
+  //   return(
+  //   currentdate.getHours() +
+  //     ":" +
+  //     currentdate.getMinّutes() +
+  //     ":" +
+  //     currentdate.getSeconds())
+  // };
 
+  // const sss=datetime()
   // useEffect(() => {
   //   axios
   //     .get(api)
@@ -68,10 +78,13 @@ const App = () => {
   //     })
   //     .catch(console.log(Error));
   // }, [location]);
-  fristData();
+
+  data.weather
+    ? (icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
+    : fristData();
 
   return (
-    <div className={data.weather?(backGround(data.weather[0].main)):'app'}>
+    <div className={data.weather ? backGround(data.weather[0].main) : "app"}>
       <div className="container">
         <div className="row main">
           <div className="col-12 search">
@@ -86,15 +99,19 @@ const App = () => {
             <p className={status === 200 ? "d-none" : "d-flex"} id="alert"></p>
           </div>
 
-
           <div className="col-12 description">
-            <div>{}</div>
             <div className="col-6 desc-item degree">
-              <h2>{data.name}</h2>
+              {/* {setInterval(sss, 1000)} */}
+              <h2>
+                {data.name}
+                <i> / {data.sys ? data.sys.country : null}</i>
+              </h2>
               {data.main ? <h1>{data.main.temp}°C</h1> : null}
             </div>
             <div className="col-6 desc-item conditions">
               {data.weather ? <p>{data.weather[0].description} </p> : null}
+
+              {data.weather ? <img src={icon} alt="icon" /> : null}
             </div>
           </div>
         </div>

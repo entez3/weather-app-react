@@ -5,7 +5,7 @@
 }
 
 .app {
-  font-family: Geneva, Tahoma, Calibri, sans-serif;
+  font-family:   'Trebuchet MS',   Calibri, sans-serif;
   text-align: center;
   background-color: rgb(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
@@ -61,14 +61,14 @@ input::placeholder {
   margin-top: 20px;
   color: rgb(255, 0, 0);
   max-width: 400px;
-  background-color: rgba(24, 11, 11, 0.6);
+  background-color: rgba(0, 11, 0);
+  font-size:small;
 }
 
 .description {
   display: flex;
   position: relative;
-  top: 30vh;
-  padding: 0 20px;
+  top: 26vh;
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -79,10 +79,10 @@ input::placeholder {
 
 .conditions {
   font-size: 1.3rem;
-  display: flex;
-  justify-content: flex-end;
 }
-
+.conditions>img{
+  max-width: 9vh;
+}
 
 .degree {
   display: flex;
@@ -103,5 +103,5 @@ footer {
   padding: 10px;
   border-radius: 8px;
   position: relative;
-  bottom: 25px;
+  bottom: 30px;
 }
