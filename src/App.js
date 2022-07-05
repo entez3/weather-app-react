@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import "./styles/grid.css";
 import "./styles/responsive.css";
 import "./styles/custom.css";
 import "./styles/App.css";
