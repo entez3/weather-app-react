@@ -5,11 +5,20 @@
 }
 
 .app {
-  font-family:   'Trebuchet MS',   Calibri, sans-serif;
+  font-family: "Trebuchet MS", Calibri, sans-serif;
   text-align: center;
-  background-color: rgb(0, 0, 0, 0.5);
+  /* background-color: rgb(0, 0, 0, 0.5); */
+  background: rgb(23, 20, 88);
+  background: linear-gradient(
+    52deg,
+    rgba(23, 20, 88, 1) 0%,
+    rgba(14, 13, 109, 1) 1%,
+    rgba(9, 9, 121, 1) 33%,
+    rgba(11, 11, 95, 1) 70%,
+    rgba(16, 15, 41, 1) 110%
+  );
   color: rgb(255, 255, 255);
-  background-image: url(../images/clear-sky.jpg);
+  /* background-image: url(../images/clear-sky.jpg); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,7 +62,16 @@ input::placeholder {
   color: #000;
 }
 
-.search > p {
+.search > .date {
+  margin-top: 8px;
+  color: #fff;
+  background-color: rgb(0, 0, 0, 0.8);
+  max-width: 32vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.search > #alert {
   padding: 5px;
   border-radius: 10px;
   margin-left: auto;
@@ -62,7 +80,7 @@ input::placeholder {
   color: rgb(255, 0, 0);
   max-width: 400px;
   background-color: rgba(0, 11, 0);
-  font-size:small;
+  font-size: small;
 }
 
 .description {
@@ -80,7 +98,7 @@ input::placeholder {
 .conditions {
   font-size: 1.3rem;
 }
-.conditions>img{
+.conditions > img {
   max-width: 9vh;
 }
 
