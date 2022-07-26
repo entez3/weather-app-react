@@ -1,25 +1,34 @@
 import React, { useState } from "react";
 
-const CityInput = (props) => {
+const CityInput = ({data,setLocation}) => {
 
-    const [getloc,setGetloc] = useState("")
+  const [getloc, setGetloc] = useState("")
+  const date = new Date();
+  return (
 
-    return (
-        <div className="col-12 search">
-        <input
-          onChange={(e) => {
-            setGetloc(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            if (e.keyCode === 13){
-                props.setLocation(getloc)
-            }}}
-          type="text"
-          placeholder="Search location"
-        />
+    <div className="col-12">
+      <input
+        onChange={(e) => {
+          setGetloc(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.keyCode === 13) {
+            setLocation(getloc)
+          }
+        }}
+        type="text"
+        placeholder="Search location"
+      />
+      <p className="d-none" id="alert"></p>
+      
+      <div className="city">
+        
+        <h3>{data.name}  <i>/ {data.sys ? data.sys.country : null}</i></h3>
       </div>
-    )
+      <p> {date.toDateString()} </p>
+
+    </div>
+  )
 
 }
-
 export default CityInput;

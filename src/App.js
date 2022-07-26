@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import "./styles/responsive.css";
 import "./styles/custom.css";
 import "./styles/App.css";
-import Api from "./api/Api";
-import CityInput from "./components/CityInput";
+import Api from "./api/api";
+import CityInput from "./components/cityInput";
+import ForeCast from "./components/foreCast";
+import Description from "./components/description";
+import Footer from "./components/footer";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -11,14 +13,18 @@ const App = () => {
 
   return (
     <div className="app">
-      <Api data={data} setData={setData} location={location} setLocation={setLocation} />
+      <Api  setData={setData} location={location} />
       <div className="container">
         <header className="row">
-          <CityInput location={location} setLocation={setLocation} />
+          <CityInput data={data} setLocation={setLocation} />
         </header>
+        <main>
+          <ForeCast data={data}/>
+          <Description data={data}/>
+        </main>
+        <Footer/>
       </div>
     </div>
   );
 };
-
 export default App;
