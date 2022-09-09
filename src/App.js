@@ -11,22 +11,23 @@ import Footer from "./components/footer";
 const App = () => {
   const [data, setData] = useState([]);
   const [location, setLocation] = useState("tehran");
-
   return (
-    <div className="app">
-      <Loading/>
-      <Api  setData={setData} location={location} />
-      <div className="container">
-        <header className="row">
-          <CityInput data={data} setLocation={setLocation} />
-        </header>
-        <main>
-          <ForeCast data={data}/>
-          <Description data={data}/>
-        </main>
-        <Footer/>
+    <>
+      <div className="app">
+        {!data.main && <Loading />}
+        <Api setData={setData} location={location} />
+        <div className="container">
+          <header className="row">
+            <CityInput data={data} setLocation={setLocation} />
+          </header>
+          <main>
+            <ForeCast data={data} />
+            <Description data={data} />
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default App;

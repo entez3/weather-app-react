@@ -1,3 +1,10 @@
+.background{
+    z-index: 10 !important;
+    position: absolute;
+    background-color: #030042ed;
+    width: 100vw;
+    height: 100vh;
+}
 #loading-bar-spinner.spinner {
     left: 50%;
     margin-left: -20px;
