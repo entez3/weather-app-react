@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles/custom.css";
 import "./styles/App.css";
 import Api from "./api/api";
+import Loading from "./components/loading";
 import CityInput from "./components/cityInput";
 import ForeCast from "./components/foreCast";
 import Description from "./components/description";
@@ -13,6 +14,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Loading/>
       <Api  setData={setData} location={location} />
       <div className="container">
         <header className="row">
